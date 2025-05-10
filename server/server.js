@@ -2,7 +2,7 @@ require('dotenv').config();
 const PORT = process.env.PORT || 3001
 const io = require('socket.io')(PORT,{
     cors:{
-        origin: 'https://google-docs-v1.vercel.app',
+        origin: process.env.FRONTEND_URL,
         methods:['GET','POST']
     }
 })
@@ -10,7 +10,7 @@ const defaultValue = "";
 
 const mongoose = require('mongoose')
 const Document = require('./models/document');
-mongoose.connect('mongodb+srv://pk2732004:01234567890Pk@cluster0.5223dea.mongodb.net/',{
+mongoose.connect(process.env.MONGO_URL,{
     useNewUrlParser : true,
     useUnifiedTopology: true
 })

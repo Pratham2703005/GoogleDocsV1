@@ -22,7 +22,7 @@ const TextEditor = () => {
   const [socket,setSocket] = useState();
   const [quill, setQuill] = useState();
     useEffect(()=>{
-      const s  = io('https://googledocsv1-1.onrender.com/')
+      const s  = io(import.meta.env.VITE_BACKEND_URL)
       setSocket(s);
       return ()=>{
         s.disconnect();
