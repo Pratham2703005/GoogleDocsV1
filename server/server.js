@@ -2,7 +2,7 @@ require('dotenv').config();
 const PORT = process.env.PORT || 3001
 const io = require('socket.io')(PORT,{
     cors:{
-        origin: 'https://google-docs-v1.vercel.app/',
+        origin: 'https://google-docs-v1.vercel.app',
         methods:['GET','POST']
     }
 })
